@@ -123,6 +123,22 @@ section {
     }
 }
 
+@media (min-width: 550px) {
+    /* Navigation Styles*/
+    .navbar__menu ul {
+        display: flex;
+        flex-direction: row;
+        padding-left: 0;
+        margin: 0;
+        text-align: right;
+        justify-content: right;
+    }
+
+    .navbar__menu li {
+        display: inline-block;
+    }
+}
+
 section:nth-of-type(even) .landing__container {
     margin-right: 0;
     margin-left: auto;
