@@ -18,7 +18,7 @@
  * Great to have comments before crucial code sections within the procedure.
 */
 
-// Creating a new section
+// Creating a new section (Section 4)
 
 const fragment = document.createDocumentFragment();
 const h2 = document.createElement("h2");
@@ -41,6 +41,21 @@ const main = document.querySelector('main');
 main.appendChild(fragment);
 
 
+//Create a nav bar with de section's text
+
+const navItems = document.querySelectorAll('main > section');
+const nameOfItems = [];
+navItems.forEach((value,key)=>nameOfItems[key]=value.getAttribute('data-nav'));
+console.log(nameOfItems);
+
+const ulNavbar = document.querySelector('#navbar__list')
+
+nameOfItems.forEach(value => {
+    const li = document.createElement('li');
+    li.textContent = value;
+    li.classList.add("menu__link");
+    ulNavbar.appendChild(li);
+})
 
 
 
