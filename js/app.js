@@ -57,7 +57,8 @@ nameOfItems.forEach(value => {
     ulNavbar.appendChild(li);
 })
 
-
+//Identificação da seção que está no viewport e 
+// configuração desta seção como a seção ativa
 
 
 
