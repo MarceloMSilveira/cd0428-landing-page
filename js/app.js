@@ -18,6 +18,34 @@
  * Great to have comments before crucial code sections within the procedure.
 */
 
+// Creating a new section
+
+const fragment = document.createDocumentFragment();
+const h2 = document.createElement("h2");
+h2.textContent = "Section 4";
+const div = document.createElement("div");
+div.classList.add("landing__container");
+div.appendChild(h2);
+const p1 = document.createElement('p');
+p1.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero ultricies molestie semper in tellus. Sed congue et odio sed euismod."
+div.appendChild(p1);
+const p2 = document.createElement('p');
+p2.textContent = "Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non."
+div.appendChild(p2);
+const section = document.createElement('section');
+section.setAttribute('id','section4');
+section.setAttribute('data-nav','Section 4');
+section.appendChild(div);
+fragment.appendChild(section);
+const main = document.querySelector('main');
+main.appendChild(fragment);
+
+
+
+
+
+
+
 /**
  * Define Global Variables
  * 
