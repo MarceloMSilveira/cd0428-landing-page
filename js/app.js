@@ -42,11 +42,11 @@ main.appendChild(fragment);
 
 
 //Create a nav bar with de section's text
-
+//navItems === sections
 const navItems = document.querySelectorAll('main > section');
 const nameOfItems = [];
 navItems.forEach((value,key)=>nameOfItems[key]=value.getAttribute('data-nav'));
-console.log(nameOfItems);
+//console.log(nameOfItems);
 
 const ulNavbar = document.querySelector('#navbar__list')
 
@@ -60,6 +60,25 @@ nameOfItems.forEach(value => {
 //Identificação da seção que está no viewport e 
 // configuração desta seção como a seção ativa
 
+const sections = navItems;
+
+function makeActive(){
+    for (const section of sections) {
+        const box = section.getBoundingClientRect();
+        console.log(box.top)
+        //Find a value that works best, but 150 seems to be a good start.
+        const VALUE = 150;
+        if (box.top <= VALUE && box.bottom >= VALUE) {
+        //apply active state on current section and corresponding Nav link
+            section.classList.add('your-active-class');
+        } else {
+        //Remove active state from other section and corresponding Nav link
+        section.classList.remove('your-active-class');
+        }
+     }
+}
+
+document.addEventListener('scroll',()=>makeActive());
 
 
 /**
