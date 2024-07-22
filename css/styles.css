@@ -45,6 +45,11 @@ p {
     color: #eee;
 }
 
+a {
+    text-decoration: none;
+    color: #000;
+}
+
 /* ---- Layout Rules ---- */
 main {
     margin: 10vh 1em 10vh;
@@ -83,6 +88,18 @@ section {
 }
 
 .navbar__menu .menu__link:hover {
+    background: #333;
+    color: #fff;
+    transition: ease 0.3s all;
+}
+
+.navbar__menu .menu__link a:hover {
+    background: #333;
+    color: #fff;
+    transition: ease 0.3s all;
+}
+
+.showup-link{
     background: #333;
     color: #fff;
     transition: ease 0.3s all;

@@ -51,11 +51,32 @@ navItems.forEach((value,key)=>nameOfItems[key]=value.getAttribute('data-nav'));
 const ulNavbar = document.querySelector('#navbar__list')
 
 nameOfItems.forEach(value => {
+    const a = document.createElement('a');
+    a.textContent = value;
     const li = document.createElement('li');
-    li.textContent = value;
     li.classList.add("menu__link");
+    li.appendChild(a)
     ulNavbar.appendChild(li);
 })
+
+//De acordo com a seção ativa, mudar a seção em destaque
+//no nav bar:
+
+const menuItems = document.querySelectorAll("li.menu__link");
+//console.log(menuItems);
+
+function ChangeSectionOnNavBar(section){
+
+    menuItems.forEach((value)=>{
+        const link = value.querySelector('a')
+        if (section.getAttribute('data-nav')===value.textContent) {
+            link.classList.add('showup-link');
+        } else {
+            link.classList.remove('showup-link')
+        }
+    })
+}
+
 
 //Identificação da seção que está no viewport e 
 // configuração desta seção como a seção ativa
@@ -65,21 +86,52 @@ const sections = navItems;
 function makeActive(){
     for (const section of sections) {
         const box = section.getBoundingClientRect();
-        console.log(box.top)
+        //console.log(box.top)
         //Find a value that works best, but 150 seems to be a good start.
         const VALUE = 150;
         if (box.top <= VALUE && box.bottom >= VALUE) {
         //apply active state on current section and corresponding Nav link
             section.classList.add('your-active-class');
+            ChangeSectionOnNavBar(section);
         } else {
         //Remove active state from other section and corresponding Nav link
-        section.classList.remove('your-active-class');
+            section.classList.remove('your-active-class');
         }
      }
 }
 
 document.addEventListener('scroll',()=>makeActive());
 
+//configuração dos links dentro dos li para conter as referências 
+//aos id de cada seção
+
+const links = document.querySelectorAll("li.menu__link a");
+
+links.forEach(value=>{
+    const link = value;
+    navItems.forEach((value)=>{
+        if(value.getAttribute('data-nav')===link.textContent){
+            link.setAttribute('href',`#${value.getAttribute('id')}`)
+        }
+    })
+})
+    
+//identificando um click no menu nav bar
+// e navegando para a seção correspondente
+
+ulNavbar.addEventListener('click',(e)=>{
+    e.preventDefault();
+    const target = e.target;
+    //console.log(target);
+    const href = target.getAttribute('href');
+    //console.log(href);
+    const section = document.querySelector(href);
+
+    section.scrollIntoView({
+        bahavior: "smooth"
+    })
+
+})
 
 /**
  * Define Global Variables
