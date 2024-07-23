@@ -133,6 +133,45 @@ ulNavbar.addEventListener('click',(e)=>{
 
 })
 
+//hiding navbar
+
+let lastScrollTop = 0;
+const navbar = document.querySelector('.page__header');
+console.log(navbar);
+let scrollTimeout;
+
+window.addEventListener('scroll', () => {
+    clearTimeout(scrollTimeout);
+    const currentScroll = window.scrollY || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop) {
+        navbar.classList.add('hide-navbar__menu'); // Adjust based on navbar height
+    } else {
+        navbar.classList.remove('hide-navbar__menu');
+    }
+    
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+
+    // Set a timeout to hide the navbar if scrolling stops
+    scrollTimeout = setTimeout(() => {
+        navbar.classList.add('hide-navbar__menu');
+    }, 1000); // Adjust the delay as needed
+});
+
+
+//Fazer o menu aparecer em função da posição do mouse:
+
+const detectionThreshold = 50; // Distance in pixels from the top to detect
+
+document.addEventListener('mousemove', (event) => {
+    const mouseY = event.clientY;
+
+    if (mouseY <= detectionThreshold) {
+        navbar.classList.remove('hide-navbar__menu');
+    }
+});
+
+
 /**
  * Define Global Variables
  * 

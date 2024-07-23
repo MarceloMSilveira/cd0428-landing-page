@@ -55,6 +55,26 @@ main {
     margin: 10vh 1em 10vh;
 }
 
+button {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.6em;
+    /* border-radius: 10px; */
+    border: none;
+    background-color: white;
+    font-family: 'Merriweather', serif;
+    /* font-size: 1.5rem; */
+}
+
+button:hover {
+    background: #333;
+    transition: ease 0.3s all;
+}
+
+button a:hover {
+    color: #fff;
+}
+
 .main-hero {
     min-height: 40vh;
     padding-top: 3em;
@@ -69,6 +89,7 @@ section {
 /* ---- Module Rules ---- */
 
 /* Navigation Styles*/
+
 .navbar__menu ul {
     padding-left: 0;
     margin: 0;
@@ -133,6 +154,10 @@ section {
     text-align: left;
 }
 
+.hide-navbar__menu {
+    top: -250px;
+}
+
 @media only screen and (min-width: 35em){
     .landing__container {
         max-width: 50em;
@@ -153,6 +178,10 @@ section {
 
     .navbar__menu li {
         display: inline-block;
+    }
+
+    .hide-navbar__menu {
+        top: -60px;
     }
 }
 
